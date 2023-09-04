@@ -2,6 +2,8 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { HelloWorldStack } from '../lib/hello-world-stack';
+import { HellowWorldLambdaStack } from '../lib/lambda-hello-world-stack'
+
 
 const app = new cdk.App();
 new HelloWorldStack(app, 'HelloWorldStack', {
@@ -19,3 +21,11 @@ new HelloWorldStack(app, 'HelloWorldStack', {
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 });
+
+
+export const lambdaStackName = 'LambdaHellowWorldStack'  
+export const lambdaFunctionName = 'LambdaHellowWorldFunction'
+
+new HellowWorldLambdaStack(app, lambdaStackName, {
+    functionName: lambdaFunctionName,
+})
